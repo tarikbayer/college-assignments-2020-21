@@ -4,7 +4,7 @@ package praktikum_2;
 
 import java.util.Scanner;
 
-public class Aufgabe_2_1 {
+public class Assignment_3_1 {
 
 	public static void main(String[] args) {
 		int laenge = 0, auswahl, addWert;
