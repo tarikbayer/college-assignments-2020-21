@@ -12,10 +12,15 @@ VHDL Tasks
 * 3(c) Test whether the hierarchical model has the same function with the test bench from 2). To do this, instantiate both counters in the testbench so that both outputs can be observed at the same time.
 
   Notes and requirements:
+  
 • Entity name for counter task 1: cntProc
+
 • Entity name for testbench task 2: cntTB
+
 • Entity name for counter task 3: cntHierarch
+
 • Entity name for multiplexer: mux43 (4: 1 with 3 bit wide vectors)
+
 
 entity mux43 is
 port (
