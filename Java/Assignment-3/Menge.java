@@ -1,34 +1,32 @@
-/* Gruppe 49 */
-/* Nicole Schmidt, Tarik Bayer */
 
 package praktikum_2;
 
 public class Menge {
 	private byte[] Bitmap;
 	
-	//Konstruktor der die Länge für die Bitmap übergeben bekommt und den Array erstellt
+	//Constructor that receives the length for the bitmap and creates the array
 	public Menge(int laenge){
 		this.Bitmap = new byte[laenge];
 		
-		//Bitmap-Array mit Nullen vorbesetzen, dunno wie viel Sinn das macht
+		//Filling bitmap array with zeros, dunno how much sense that makes
 		for(int i=0; i < laenge; i++) {
 			Bitmap[i] = 0;
 		}
 	}
 	
-	//Add-Methode mit übergebenem Element
+	//Add method with passed element
 	public int add(int wert) {
-		//Überprüfen ob das Element nicht in der Grundmenge liegt, falls Ja -1 als Rückgabewert liefern
+		//Check whether the element is not in the basic set, if yes return -1 as the return value
 		if(wert < 0 || wert >= Bitmap.length) {
 			return -1;
 		}
 		
-		//Ansonsten das Element der Bitmap hinzufügen und 0 zurückgeben
+		//Otherwise add the element to the bitmap and return 0
 		Bitmap[wert] = 1;
 		return 0;
 	}
 	
-	//Size-Methode, die die einsen im Bitmap-Array zählt
+	//Size method that counts the ones in the bitmap array
 	public int size() {
 		int hilfe = 0;
 		for(int i=0; i < Bitmap.length; i++) {
@@ -38,7 +36,7 @@ public class Menge {
 		}
 		return hilfe;
 	}
-	//Elemente des Arrays auf den Bildschirm ausgeben
+	//Output elements of the array on the screen
 	public void print() {
 		
 		System.out.println("Inhalt der Bitmap:");
@@ -54,11 +52,11 @@ public class Menge {
 	}
 }
 
-//Unterklasse für Aufgabe 2.2
+//Subclass for Assignment 3.2
 class neueMenge extends Menge {
 	private int laenge;
 	
-	//Konstruktur der den Array direkt mit einsen über Aufruf der Add-Methoder der Oberklasse füllen kann
+	//Constructor that can fill the array directly with ones by calling the add method of the superclass
 	public neueMenge(int laenge, int wert) {
 		super(laenge);
         this.laenge = laenge;
@@ -68,7 +66,7 @@ class neueMenge extends Menge {
         }
 	}
 	
-	//Empty-Methode, welche über Aufruf der Size-Methode rausfindet, ob die Menge bzw. der Array leer sind und dementsprechend true oder false zurückgibt
+	//Empty method, which finds out by calling the Size method whether the set or the array is empty and accordingly returns true or false
 	public Boolean empty() {
 		if(size() == 0) {
 			return true;
@@ -76,14 +74,14 @@ class neueMenge extends Menge {
 		return false;
 	}
 	
-	//Neue Add-Methode
+	//New add method
 	public int add(int unten, int oben) {
-		//Überprüfen ob unten und oben in der Grundmenge liegen, falls ja Methode mit -1 beenden
+		//Check whether the bottom and top are in the basic set, if so, terminate the method with -1
 		if(unten < 0 || unten >= laenge || oben < 0 || oben >= laenge) {
 			return -1;
 		}
 		
-		//Ansonsten Array mithilfe der alten Add-Methode mit einsen zwischen unten und oben füllen und eine 0 zurückgeben
+		//Otherwise, fill the array with ones between the bottom and the top using the old Add method and return a 0
 		for(int i=unten+1; i < oben; i++) {
 			add(i);
 		}
