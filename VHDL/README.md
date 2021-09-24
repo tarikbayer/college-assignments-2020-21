@@ -35,3 +35,4 @@ end mux43;
 
 • Entity name for the register: dff3 (Attention: Reset of the counter is active low!)
 • Entity name for the adders: va3
+ 
