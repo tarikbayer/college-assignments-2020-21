@@ -1,5 +1,5 @@
-/* Nicole Schmidt */
-/* Aufgabe 1.1: Klasse zum Arbeiten mit Stacks */
+/* Tarık Fırat Bayer */
+/* Assignment 2: Class for working with stacks */
 
 import java.io.*;
 import java.util.Scanner;
