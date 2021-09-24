@@ -24,16 +24,16 @@ VHDL Tasks
 
 
 
-entity mux43 is
-port (
-d0: in std_logic_vector (2 downto 0); - d0 (sel = "00")
-d1: in std_logic_vector (2 downto 0); - d1 (sel = "01")
-d2: in std_logic_vector (2 downto 0); - d2 (sel = "10")
-d3: in std_logic_vector (2 downto 0); - d3 (sel = "11")
-sel: in std_logic_vector (1 downto 0); - 2 selector inputs
-Y: out std_logic_vector (2 downto 0) - output
-);
-end mux43;
+    entity mux43 is
+    port (
+    d0: in std_logic_vector (2 downto 0); - d0 (sel = "00")
+    d1: in std_logic_vector (2 downto 0); - d1 (sel = "01")
+    d2: in std_logic_vector (2 downto 0); - d2 (sel = "10")
+    d3: in std_logic_vector (2 downto 0); - d3 (sel = "11")
+    sel: in std_logic_vector (1 downto 0); - 2 selector inputs
+    Y: out std_logic_vector (2 downto 0) - output
+    );
+    end mux43;
 
 
 
