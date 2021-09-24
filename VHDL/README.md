@@ -22,6 +22,8 @@ VHDL Tasks
 • Entity name for multiplexer: mux43 (4: 1 with 3 bit wide vectors)
 
 
+
+
 entity mux43 is
 port (
 d0: in std_logic_vector (2 downto 0); - d0 (sel = "00")
@@ -32,6 +34,9 @@ sel: in std_logic_vector (1 downto 0); - 2 selector inputs
 Y: out std_logic_vector (2 downto 0) - output
 );
 end mux43;
+
+
+
 
 • Entity name for the register: dff3 (Attention: Reset of the counter is active low!)
 • Entity name for the adders: va3
