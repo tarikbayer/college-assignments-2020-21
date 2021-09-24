@@ -19,7 +19,7 @@ public class Assignment_3_1 {
 			System.out.println("Error: No number entered!");
 		}
 		
-		//Generate quantity
+		//Creating a set
 		Menge M = new Menge(laenge);
 			
 		do {
