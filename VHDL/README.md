@@ -10,3 +10,23 @@ VHDL Tasks
 * 3(a) Draw the circuit diagram of the top hierarchy (entity cntHierarch), i.e. where the adders, multiplexers and registers are connected via signals and name the signals in the circuit diagram with the names they use in your VHDL implementation
 * 3(b) Create the hierarchical VHDL model (entity name see below) and note that the counter is reset asynchronously if the input is '0' (CLRN).
 * 3(c) Test whether the hierarchical model has the same function with the test bench from 2). To do this, instantiate both counters in the testbench so that both outputs can be observed at the same time.
+
+* Notes and requirements:
+• Entity name for counter task 1: cntProc
+• Entity name for testbench task 2: cntTB
+• Entity name for counter task 3: cntHierarch
+• Entity name for multiplexer: mux43 (4: 1 with 3 bit wide vectors)
+
+entity mux43 is
+port (
+d0: in std_logic_vector (2 downto 0); - d0 (sel = "00")
+d1: in std_logic_vector (2 downto 0); - d1 (sel = "01")
+d2: in std_logic_vector (2 downto 0); - d2 (sel = "10")
+d3: in std_logic_vector (2 downto 0); - d3 (sel = "11")
+sel: in std_logic_vector (1 downto 0); - 2 selector inputs
+Y: out std_logic_vector (2 downto 0) - output
+);
+end mux43;
+
+• Entity name for the register: dff3 (Attention: Reset of the counter is active low!)
+• Entity name for the adders: va3
