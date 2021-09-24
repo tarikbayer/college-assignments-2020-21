@@ -46,7 +46,7 @@ class Stacks {
     }
 }
 
-public class Aufgabe_1_1 {
+public class Assignment_2 {
     public static void main(String args[]) throws IOException {
         int laenge, auswahl, pushWert;
         byte x = 1;
