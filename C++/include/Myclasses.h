@@ -1,15 +1,4 @@
-/* Dateiname: Myclasses.h:
-Achtung: Signaturen dürfen nicht geändert werden!
 
-AD-Praktikum SoSe 2021
-Gruppe: 20
-Schmidt, Nicole, Mat.-Nr.: 11148335
-Bayer, Tarik, Mat.-Nr.: 11149643
-Abgabe am: 27.5.21
-Praktikumsblatt: 1.1
-Compiler Flags: -
-Linker libraries/options: -
-*/
 #ifndef MYCLASSES_H
 #define MYCLASSES_H
 //#define bugs
@@ -27,37 +16,36 @@ class POINT{
       void setY(double);
 
    public :
-      POINT();  //Standardkonstruktor, Nutzung eventuell nicht erforderlich!
-      POINT(double X, double Y); //Initialisierungskonstruktor
-      POINT(POINT &); //Copy-Konstruktor
-      double distanceTo(const POINT &);  // Abstand zweier POINT-Objekte
-
+      POINT();  //Standard constructor, usage may not be required!
+      POINT(double X, double Y); //Initialization constructor
+      POINT(POINT &); //Copy constructor
+      double distanceTo(const POINT &);  //Distance between two POINT objects
       double getX();
       double getY();
 
-      //Wir mussten die get Methoden wegen const Correctness anpassen, da wir sonst nicht innerhalb zB der distanceTo Methode auf die get Methoden zugreifen konten
+      //We had to adapt the get methods because of const correctness, otherwise we wouldn't be able to access the get methods within the distanceTo method, for example
       double getXconst() const;
       double getYconst() const;
 
-      POINT & operator = (const POINT &); // Überladener Zuweisungsoperator
-      POINT & operator + (const POINT &); // Überladener Additionsoperator
-      POINT & operator - (const POINT &); // Überladener Subtraktionsoperator
-      POINT & operator * (double );  // Überladener Multiplikationsoperator, POINT * Skalar
-      virtual void show(); // Ausgabe der Koordinaten in der Form ( x | y )
-      virtual ~POINT(); // Virtueller Destruktor, wird automatisch aufgerufen durch die Destruktoren von LINE und CIRCLE
+      POINT & operator = (const POINT &); // Overloaded assignment operator
+      POINT & operator + (const POINT &); // Overloaded addition operator
+      POINT & operator - (const POINT &); // Overloaded subtraction operator
+      POINT & operator * (double );  // Overloaded multiplication operator, POINT * scalar
+      virtual void show(); // Output of the coordinates in the form (x | y)
+      virtual ~POINT(); // Virtual destructor, is called automatically by the destructors of LINE and CIRCLE
 
-};  //Ende class POINT
+};  //End of the class POINT
 
 class LINE : private POINT{
    private:
-      POINT * P2;   //pointer auf zweites POINT-Objekt für die Gerade
-      double A,B,C; //Werte für die Parameterdarstellung der  Geraden
-      void normalize(void); //Normalisierung nach Euklid, Verwendung im Konstruktor, kann weggelassen werden
+      POINT * P2;   //pointer auf zweites POINT-Objekt fÃ¼r die Gerade
+      double A,B,C; //Values for the parametric representation of the straight line
+      void normalize(void); //Normalization according to Euclid, used in the constructor, can be omitted
    public :
       LINE (POINT *P1, POINT *P2); //Initialisierungskonstruktor
-      POINT * meets (const LINE *L);  //Schnittpunkt für zwei Geraden
-      bool parallelTo(const LINE *L); //Feststellen, ob zwei Geraden parallel sind
-      void show(); //Überschriebene Methode show: Ausgabe der Koordinaten in der Form ( x1 | y1 ), ( x2 | y2 )
+      POINT * meets (const LINE *L);  //Schnittpunkt fÃ¼r zwei Geraden
+      bool parallelTo(const LINE *L); //Determine if two lines are parallel
+      void show(); //Overridden method show: Output of the coordinates in the form (x1 | y1), (x2 | y2)
       ~LINE();
 
 }; //class LINE
@@ -65,15 +53,15 @@ class LINE : private POINT{
 class CIRCLE : private POINT{
    private:
       double Radius;
-      double skPro(POINT &, POINT &); //Hilfsfunktion um das Skalarprodukt zweier Vektoren zu bestimmen
+      double skPro(POINT &, POINT &); //Auxiliary function to determine the scalar product of two vectors
    public:
-      CIRCLE (POINT *M, double R); //Initialisierungskonstruktor 1
-      CIRCLE (POINT *,POINT *,POINT *); //Initialisierungskonstruktor 2
+      CIRCLE (POINT *M, double R); //Initialization of constructor 1
+      CIRCLE (POINT *,POINT *,POINT *); //Initialization of constructor 2
       CIRCLE * createCircle(POINT *,POINT *,POINT *);
       POINT * getMiddle();
-      void show(); //Überschriebene Methode show: Ausgabe des Mittelpunktes und des Radius
+      void show(); //Overridden method show: Output of the center point and the radius
       bool isInCircle(const POINT &);
-      void meetsOther(CIRCLE *C, int &Anzahl, POINT **S1, POINT **S2); //C wird übergeben, Anzahl, S1 udn S2 kommen zurück
+      void meetsOther(CIRCLE *C, int &Anzahl, POINT **S1, POINT **S2); //C is passed. number, S1 and S2 come back
       ~CIRCLE();
 };  //class CIRCLE
 
