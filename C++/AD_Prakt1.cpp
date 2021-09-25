@@ -1,15 +1,4 @@
-/* Dateiname: AD_Prakt1.cpp:
-Enth‰lt das Hauptprogramm laut Aufgabenstellung
 
-AD-Praktikum SoSe 2021
-Gruppe: 20
-Schmidt, Nicole, Mat.-Nr.: 11148335
-Bayer, Tarik, Mat.-Nr.: 11149643
-Abgabe am: 27.5.21
-Praktikumsblatt: 1.1
-Compiler Flags: -
-Linker libraries/options: -
-*/
 #include <iostream>
 #include "Myclasses.h"
 
@@ -33,7 +22,7 @@ int main()
         cout << "2) Zwei Kreise mit Hilfe von je 3 Punkten erstellen" << endl;
         cin >> auswahl;
 
-        //Falls die 1 eingeben wurde den Nutzer 2 Kreise erstellen lassen
+        //If 1 entered the user was allowed to create 2 circles
         if(auswahl == 1){
             cout << endl << "Bitte Mittelpunkt (x|y) und den Radius von Kreis 1 eingeben: " << endl;
             cout << "x: ";
@@ -43,7 +32,7 @@ int main()
             cout << "R: ";
             cin >> R1;
 
-            //Kreis 1 mithilfe des Mittelpunkts und Radius erstellen und anschlieﬂen auf den Bildschirm ausgeben
+            //Create circle 1 using the center point and radius and then output it on the screen
             P1 = new POINT(Mx1, My1);
             c1 = new CIRCLE(P1, R1);
 
@@ -57,18 +46,18 @@ int main()
             cout << "R: ";
             cin >> R2;
 
-            //Kreis 2 mithilfe des Mittelpunkts und Radius erstellen und anschlieﬂen auf den Bildschirm ausgeben
+            //Create circle 2 using the center point and radius and then output it on the screen
             P2 = new POINT(Mx2, My2);
             c2 = new CIRCLE(P2, R2);
 
             c2->show();
 
-            //cout << endl << "Abstand der Mittelpunkte: " << P1->distanceTo(*P2) << endl;
+            //cout << endl << "Distance between the centers:" << P1->distanceTo(*P2) << endl;
 
-            //Mithilfe der Methode meetsOther pr¸fen ob die Kreise sich schneiden, ber¸hren oder nicht ber¸hren
+            //Using the meetsOther method, check whether the circles intersect, touch or not touch
             c1->meetsOther(c2, anzahl, &P3, &P4);
 
-            //Die Variable anzahl bestimmt was dem Nutzer mitgeteilt wird
+            //The variable number determines what is communicated to the user
             switch(anzahl){
                 case 0 : cout << "Die Kreise beruehren sich nicht" << endl;
                          break;
@@ -86,10 +75,10 @@ int main()
                           break;
             }
         }
-        //Falls die 2 eingeben wurde den Nutzer 6 Koordinaten f¸r 3 Punkte eingeben lassen
-        //Schritt 1: Einlesen der Koordinaten der Punkte A, B & C
+        //If the 2 entered, the user was allowed to enter 6 coordinates for 3 points
+        //Step 1: Reading in the coordinates of points A, B & C
         else if(auswahl == 2){
-            //1. Kreis
+            //1st circle
             cout << endl << "1. Kreis: Bitte Koordinaten fuer Punkt A eingeben: " << endl;
             cout << "x: ";
             cin >> A1x;
@@ -139,20 +128,20 @@ int main()
 
             C2 = new POINT(C2x, C2y);
 
-            //Schritt 2: Zur¸ck ins Men¸, wenn 2 oder mehr Punkte gleich sind
+            //Step 2: Back to the menu if 2 or more items are the same
             if(A1->distanceTo(*B1) == 0 || A1->distanceTo(*C1) == 0 || B1->distanceTo(*C1) == 0 || A2->distanceTo(*B2) == 0 || A2->distanceTo(*C2) == 0 || B2->distanceTo(*C2) == 0){
                 cout << endl << "2 oder mehr der eingebenen Punkte sing gleich!" << endl << endl;
 
             }
-            //Ansonsten mit dem Programm fortfahren
+            //Otherwise continue with the program
             else{
                 cA = cA->createCircle(A1, B1, C1);
                 cB = cB->createCircle(A2, B2, C2);
 
-                //Mithilfe der Methode meetsOther pr¸fen ob die Kreise sich schneiden, ber¸hren oder nicht ber¸hren
+                //Using the meetsOther method, check whether the circles intersect, touch or not touch
                 cA->meetsOther(cB, anzahl, &P3, &P4);
 
-                //Die Variable anzahl bestimmt was dem Nutzer mitgeteilt wird
+                //The variable number determines what is communicated to the user
                 switch(anzahl){
                     case 0 : cout << "Die Kreise beruehren sich nicht" << endl;
                              break;
@@ -173,7 +162,7 @@ int main()
 
         }
 
-        //Den Nutzer fragen ob das Programm erneut ausgef¸hrt werden soll (nur der Buchstabe n beendet das Programm, alle anderen f¸hren es erneut aus)
+        //Ask the user if the program should be run again (only the letter n terminates the program, all others run it again)
         cout << "Moechten Sie das Programm erneut ausfuehren? (y/n) ";
         cin >> nochmal;
         cout << endl;
