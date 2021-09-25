@@ -22,7 +22,7 @@ For three points of the x-y plane read in from the keyboard with the help of the
 Use the code in the files provided to create a Code :: Blocks project. The signatures of the specified methods may not be changed, you may create other methods (for example to determine intermediate results ...)
 Use Code :: Blocks version 20.03 with the compiler gcc8.1.0 for Windows, unicode, 32 bit
 
-02. Assignment 2: 
+* Assignment 2: 
   - Object-oriented programming of a linked list
   - The aim of this internship is to create a program for processing the entries in a linked list of strings while at the same time managing a queue (FIFO). The functionality is to be demonstrated in a main program.
   - A linked list is a sequence of data elements for which a pointer to the next element is created in addition to the data to be managed. "First" is a pointer to the first element. In addition to the data, a pointer to the successor element is created for each list element; the last element contains a specified value as an address that cannot be interpreted as a valid address (= NULL).
