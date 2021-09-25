@@ -1,15 +1,4 @@
-/* Dateiname: Myclasses.cpp:
-Enthält den Code der Methoden der Klassen POINT, LINE und CIRCLE
 
-AD-Praktikum SoSe 2021
-Gruppe: 20
-Schmidt, Nicole, Mat.-Nr.: 11148335
-Bayer, Tarik, Mat.-Nr.: 11149643
-Abgabe am: 27.5.21
-Praktikumsblatt: 1.1
-Compiler Flags: -
-Linker libraries/options: -
-*/
 #include <math.h>
 #include <iostream>
 #include "Myclasses.h"
@@ -47,7 +36,7 @@ double POINT::getY(){
     return Y;
 }
 
-//Wir mussten die get Methoden wegen const Correctness anpassen, da wir sonst nicht innerhalb zB der distanceTo Methode auf die get Methoden zugreifen konten
+//We had to adapt the get methods because of const correctness, otherwise we wouldn't be able to access the get methods within the distanceTo method, for example
 double POINT::getXconst() const{
     return X;
 }
@@ -114,11 +103,11 @@ void LINE::normalize(void){
 }
 
 POINT * LINE::meets(const LINE *L){
-    //Koordinate X des Schnittpunktes berechnen
+    //Calculate the X coordinate of the intersection
     double Xs = (L->B * C - L->C * B) / (L->A * B - A * L->B);
-    //Variable Y des Schnittpunktes berechnen
+    //Calculate variable Y of the intersection point
     double Ys = (L->C * A - L->A * C) / (A * L->B - L->A * B);
-    //Die berechneten Koordinaten als POINT deklarieren und zurückgeben
+    //Declare the calculated coordinates as POINT and return them
     POINT * p = new POINT(Xs, Ys);
     return p;
 }
@@ -158,24 +147,24 @@ CIRCLE * CIRCLE::createCircle(POINT *P1,POINT *P2,POINT *P3){
     int anzahl;
     double abstand;
 
-    //Schritt 3: Konstruktion von Hilfskreisen mit geeigneten Radien
+    //Step 3: Construction of auxiliary circles with suitable radii
     if(P1->distanceTo(*P2) > P1->distanceTo(*P3)) abstand = P1->distanceTo(*P2);
     else abstand = P1->distanceTo(*P3);
     C1 = new CIRCLE(P1, abstand / 1.5);
     C2 = new CIRCLE(P2, abstand / 1.5);
     C3 = new CIRCLE(P3, abstand / 1.5);
 
-    //Schritt 3.5: Ermittlung der Schnittpunkte der Hilfskreise
+    //Step 3.5: Determine the intersection of the auxiliary circles
     C1->meetsOther(C2, anzahl, &S1, &S2);
     C1->meetsOther(C3, anzahl, &S3, &S4);
     C2->meetsOther(C3, anzahl, &S5, &S6);
 
-    //Schritt 4: Ermittlung der Geraden, welche durch die Schnittpunkte verlaufen
+    //Step 4: Determination of the straight lines that run through the intersection points
     L1 = new LINE(S1, S2);
     L2 = new LINE(S3, S4);
     L3 = new LINE(S5, S6);
 
-    //Schritt 5: Überprüfen ob die Geraden parallel sind
+    //Step 5: Check whether the straight lines are parallel
     if(L1->parallelTo(L2) || L1->parallelTo(L3) || L2->parallelTo(L3)){
         DP = new POINT(0, 0);
         FC = new CIRCLE(DP, 0);
@@ -183,12 +172,12 @@ CIRCLE * CIRCLE::createCircle(POINT *P1,POINT *P2,POINT *P3){
         return FC;
     }
 
-    //Schritt 6 & 7: Mittelpunkt und Radius bestimmen und Kreis erstellen
+    //Step 6 & 7: Determine the center point and radius and create a circle
     else{
         MP = new POINT(*L1->meets(L2));
         FC = new CIRCLE(MP, MP->distanceTo(*P1));
 
-        //Schritt 8: Ausgabe des Mittelpunkts und Radius
+        //Step 8: output the center point and radius
         FC->show();
 
         return FC;
@@ -228,14 +217,14 @@ void CIRCLE::meetsOther(CIRCLE *C, int &Anzahl, POINT **S1, POINT **S2){
 
         h = sqrt(Radius * Radius - a * a);
 
-        //Kreise berühren sich nicht
+        //Circles do not touch
         if (D > SR)
             Anzahl = 0;
 
-        //Kreise schneiden sich
+        //Circles intersect
         else if(D < SR){
             Anzahl = 2;
-            //Schnittpunkt berechnen
+            //Calculate point of intersection
             double S1x, S1y, S2x, S2y;
 
             S1x = POINT::getX() + (a/D) * Dx - (h/D) * Dy;
@@ -248,10 +237,10 @@ void CIRCLE::meetsOther(CIRCLE *C, int &Anzahl, POINT **S1, POINT **S2){
             *S2 = new POINT(S2x, S2y);
         }
 
-        //Kreise berühren sich
+        //Circles touch
         else{
             Anzahl = 1;
-            //Berührpunkt berechnen
+            //Calculate the point of contact
             double S1x, S1y;
 
             S1x = POINT::getX() + (a/D) * Dx - (h/D) * Dy;
