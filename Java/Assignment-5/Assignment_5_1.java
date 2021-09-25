@@ -3,11 +3,11 @@ package praktikum_4;
 import java.io.*;
 import java.util.Scanner;
 
-public class Aufgbe_4_1 {
+public class Assignment_5_1 {
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		String fnap = "C:\\Users\\Nicole\\Desktop\\daten.txt";
-		String fnap2 = "C:\\Users\\Nicole\\Desktop\\daten2.txt";
+		String fnap = "C:\\Users\\Tarik\\Desktop\\daten.txt";
+		String fnap2 = "C:\\Users\\Tarik\\Desktop\\daten2.txt";
 		int anzahl;
 		
 		String name;
@@ -18,7 +18,7 @@ public class Aufgbe_4_1 {
 		Mensch help = mensch;
 		Mensch obj1 = new Mensch();
 
-		//Scanner initialisieren und schauen ob die Datei existiert
+		//Initialize the scanner and see if the file exists
 		Scanner scan = null;
 		try {
 		    scan = new Scanner(new File(fnap));
@@ -26,11 +26,11 @@ public class Aufgbe_4_1 {
 		    e.printStackTrace();
 		}
 		
-		//Die Anzahl der einzulesenden Objekte bestimmen und den Array auf diese Länge setzen
+		//Determine the number of objects to be read in and set the array to this length
 		anzahl = scan.nextInt();
 		Mensch array[] = new Mensch[anzahl]; 
 		
-		//Einlesen der Namen etc. und diese als Objekt in dem Array abspeichern
+		//Read in the names etc. and save them as an object in the array
 		for(int i = 0; i < anzahl; i++) {
 			name = scan.next();
 			groesse = scan.nextDouble();
@@ -42,28 +42,28 @@ public class Aufgbe_4_1 {
 		}
 		scan.close();
 		
-		//Array auf den Bildschirm mit der print Methode ausgeben
+		//Output the array to the screen with the print method
 		System.out.println("Eingelesene Objekte aus daten.txt: ");
 		for(int k = 0; k < anzahl; k++) {
 			array[k].print();
 			System.out.println();
 		}
 		
-		//Alle Objekte durch serialisierte Ausgabe in daten2.txt speichern
+		//Save all objects through serialized output in daten2.txt
 		ObjectOutputStream  objOutStr = new ObjectOutputStream(new FileOutputStream(fnap2));
 		objOutStr.writeObject(mensch);
 		objOutStr.close();
 		
-		//Nun daten2.txt wieder einlesen
+		//Now read in daten2.txt again
 		ObjectInputStream  objInStr = new ObjectInputStream(new FileInputStream(fnap2));
 		obj1 = (Mensch) objInStr.readObject();
 		objInStr.close();
 		
-		//Neuen array erzeugen und Hilfsvariable setzen
+		//Create a new array and set the auxiliary variable
 		Mensch array2[] = new Mensch[anzahl]; 
 		help = obj1.next;
 		
-		//Abspeichern der neu erzeugten Objekte in einen zweiten Array und diese ausgeben
+		//Save the newly created objects in a second array and output them
 		System.out.println("Eingelesene Objekte aus daten2.txt: ");
 		for(int l = 0; l < anzahl; l++) {
 			array2[l] = help;
