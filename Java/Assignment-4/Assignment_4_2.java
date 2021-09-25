@@ -2,7 +2,7 @@ package praktikum_3;
 
 import java.util.Scanner;
 
-public class Aufgabe_3_2 {
+public class Assignment_4_2 {
 
 	public static void main(String[] args) {
 		
@@ -12,13 +12,13 @@ public class Aufgabe_3_2 {
 		double valueDouble;
 		ArrayGList<?> List = null;
 
-		System.out.print("Bitte die maximale Länge der IntegerList eingeben: ");
+		System.out.print("Bitte die maximale LÃ¤nge der IntegerList eingeben: ");
 		try {
 			length = scanner.nextInt();
 		} catch (java.util.InputMismatchException e){
 			System.out.println("Fehler: Keine Zahl eingegeben!");
 		}
-		System.out.println("Welchen Datentyp möchten sie verwenden?");
+		System.out.println("Welchen Datentyp mÃ¶chten sie verwenden?");
 		System.out.println("1 = Integer");
 		System.out.println("2 = Double");
 		datentyp = scanner.nextInt();
@@ -31,9 +31,9 @@ public class Aufgabe_3_2 {
 		}
 	
 		do {
-			//User fragen welche Methode benutzt werden soll oder ob das Programm beendet werden soll
+			//Users ask which method should be used or whether the program should be terminated
             do{
-                System.out.println("\nWelche Methode möchten Sie verwenden? ");
+                System.out.println("\nWelche Methode mÃ¶chten Sie verwenden? ");
                 System.out.println("1 = getLength");
                 System.out.println("2 = insertLast");
                 System.out.println("3 = getFirst");
@@ -47,41 +47,41 @@ public class Aufgabe_3_2 {
 			
 			switch(auswahl) {
             	//getLength
-            	case 1 : 	System.out.print("  Rückgabewert: " + List.getLength()); break;
+            	case 1 : 	System.out.print("  RÃ¼ckgabewert: " + List.getLength()); break;
                 
     			//insertLast
-            	case 2 :	System.out.print("  Bitte gewünschten Wert eingeben: ");
+            	case 2 :	System.out.print("  Bitte gewÃ¼nschten Wert eingeben: ");
             				if(datentyp == 1) {
             					value = scanner.nextInt();
-            					System.out.println("  Rückgabewert: " + List.insertLast(value)); break;
+            					System.out.println("  RÃ¼ckgabewert: " + List.insertLast(value)); break;
             				}
             				else {
             					valueDouble = scanner.nextDouble();
-            					System.out.println("  Rückgabewert: " + List.insertLast(valueDouble)); break;
+            					System.out.println("  RÃ¼ckgabewert: " + List.insertLast(valueDouble)); break;
             				}
 			    			
             	
     			//getFirst
-            	case 3 :	System.out.println("  Rückgabewert: " + List.getFirst()); break;
+            	case 3 :	System.out.println("  RÃ¼ckgabewert: " + List.getFirst()); break;
             	
             	//deletFirst
-            	case 4 :	System.out.println("  Rückgabewert: " + List.deleteFirst()); break;
+            	case 4 :	System.out.println("  RÃ¼ckgabewert: " + List.deleteFirst()); break;
             	
             	//search
-            	case 5 : 	System.out.print("  Bitte gewünschten Wert eingeben: ");
+            	case 5 : 	System.out.print("  Bitte gewÃ¼nschten Wert eingeben: ");
 							if(datentyp == 1) {
 								value = scanner.nextInt();
-								System.out.println("  Rückgabewert: " + List.search(value, datentyp)); break;
+								System.out.println("  RÃ¼ckgabewert: " + List.search(value, datentyp)); break;
 							}
 							else {
 								valueDouble = scanner.nextDouble();
-								System.out.println("  Rückgabewert: " + List.search(valueDouble, datentyp)); break;
+								System.out.println("  RÃ¼ckgabewert: " + List.search(valueDouble, datentyp)); break;
 							}
             	
             	//print
             	case 6 : 	 List.print(); break;
             				
-            	//Programm beenden			
+            	//exit program	
             	case 7 : 	break;
             }
 		
