@@ -5,4 +5,4 @@
     - A program that calculates the radius of a circle and the distance between two user-given points.
   * Assignment-2
     - A program that allows user to create stacks in desired length and use POP, PUSH, PRINT methods on the stack.
-  * Assignment-3 includes two small projects.
+  * Assignment-3 includes three classes to work with Sets and Subclasses.
