@@ -8,3 +8,4 @@
   * Assignment-3 includes three classes to work with Sets and Subclasses.
   * Assignment-4 includes three classes that work with Generics and Interfaces
   * Assignment-5 is a program to process files with a given file path and to work with Java's Serialization function.
+  * Assignment-6 is a simple calculator programmed using Java Swing & GUI.
