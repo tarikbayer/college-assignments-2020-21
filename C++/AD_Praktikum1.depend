@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1621947418 source:c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum1_test\src\myclasses.cpp
+	<math.h>
+	"Myclasses.h"
+
+1621947611 c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum1_test\include\myclasses.h
+
+1621947509 source:c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum1_test\main.cpp
+	"Myclasses.h"
+	<iostream>
+
+1622131778 source:c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum1\src\myclasses.cpp
+	<math.h>
+	<iostream>
+	"Myclasses.h"
+
+1622133438 c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum1\include\myclasses.h
+
+1622132593 source:c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum1\main.cpp
+	<iostream>
+	"Myclasses.h"
+
+1622133438 source:c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum1\ad_prakt1.cpp
+	<iostream>
+	"Myclasses.h"
+
