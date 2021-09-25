@@ -1,40 +1,29 @@
-/* Dateiname: QUEUE.cpp:
-Enthält das Hauptprogramm laut Aufgabenstellung
 
-AD-Praktikum SoSe 2021
-Gruppe: 20
-Schmidt, Nicole, Mat.-Nr.: 11148335
-Bayer, Tarik, Mat.-Nr.: 11149643
-Abgabe am: 21.6.21
-Praktikumsblatt: 2.1
-Compiler Flags: -
-Linker libraries/options: -
-*/
 #include "QUEUE.h"
 #include <iostream>
 using namespace std;
 
-//Konstruktor
+//Constructor
 QUEUE::QUEUE(){
     Enter = nullptr;
     Anz = 0;
 }
 
 void QUEUE::queueIn(char * InText){
-    //Neues Listenelement erstellen
+    //Create new list item
     EVKD * E = new EVKD(InText, nullptr);
     EVKD * temp = Enter;
 
-    //Prüfen ob Elemente in der Liste vorhanden sind
+    //Check whether there are elements in the list
     if(temp != nullptr){
-        //Zum Ender der Liste gehen
+        //Go to the bottom of the list
         while(temp->getNext() != nullptr){
             temp = temp->getNext();
         }
-        //Das vorherige letzte Element auf das neue Element zeigen lassen
+        //Let the previous last element point to the new element
         temp->setNext(E);
     }
-    //Ansosnten neues Element als Anfang setzen
+    //Otherwise set a new element as the beginning
     else{
         Enter = E;
     }
@@ -42,15 +31,15 @@ void QUEUE::queueIn(char * InText){
 }
 
 char * QUEUE::queueOut(){
-    //Nichts tun falls die Queue leer ist
+    //Do nothing if the queue is empty
     if(Anz == 0) return NULL;
     else{
         Anz--;
-        //Das erste Element der Queue in einer Hilfsvariablen abspeichern
+        //Save the first element of the queue in an auxiliary variable
         EVKD * help = Enter;
-        //Enter pointer auf das Element an nächster Stelle der Queue setzen
+        //Set the Enter pointer to the element at the next position in the queue
         Enter = help->getNext();
-        //Das alte erste Element zurückgeben
+        //Return the old first item
         return help->getDaten();
     }
 }
@@ -58,20 +47,20 @@ char * QUEUE::queueOut(){
 void QUEUE::einfuegeSortiert(EVKD * In, int Max){
     EVKD * help;
 
-    //Überprüfen ob der Pointer auf den sortierten Listenanfang = null ist, oder ob In an den sortierten Listenanfang gehört
+    //Check whether the pointer to the sorted beginning of the list = zero, or whether In belongs to the sorted beginning of the list
     if(sorted == NULL || *In > *sorted || *In == *sorted){
         In->setNext(sorted);
         sorted = In;
     }
-    //Ansonsten vom Anfang die Liste durchlaufen und so In an der richtigen Stelle einfügen
+    //Otherwise, go through the list from the beginning and insert In in the right place
     else{
         help = sorted;
 
-        //Liste durchlaufen, bis In größer ist oder das Ende der Liste erreicht wurde
+        //Scroll through the list until In is greater or the end of the list has been reached
         while(help->getNext() != NULL && *help->getNext() > *In){
             help = help->getNext();
         }
-        //In einsetzen
+        //Insert In
         In->setNext(help->getNext());
         help->setNext(In);
     }
@@ -82,15 +71,15 @@ void QUEUE::iSort(){
     sorted = NULL;
     int i = 0;
 
-    //Warteschlange bis zum Ende durchlaufen
+    //Go through the queue to the end
     while(current != NULL){
             EVKD * next = current->getNext();
-            //Mithilfe der einfuegeSortiert Methode die richtige Stelle für das jetzige Element der Warteschlange finden
+            //Use the einfuegeSortiert  method to find the right place for the current element of the queue
             einfuegeSortiert(current, ++i);
-            //Weiter zum nächsten Element
+            //Move on to the next element
             current = next;
     }
-    //Nachdem alle Elemente sortiert wurden, Enter wieder auf das erste Element setzen
+    //After all elements have been sorted, put Enter back on the first element
     Enter = sorted;
 }
 
@@ -98,40 +87,40 @@ EVKD * QUEUE::loesche(int Pos){
     EVKD * help = Enter;
     EVKD * help2;
 
-    //Überprüfen ob das zu löschende Element an erster Stelle ist
+    //Check whether the element to be deleted is in the first place
     if(Pos == 1){
-        //Falls ja, dann Enter auf das Element an nächster Stelle setzen
+        //If so, then set Enter on the element in the next position
         help2 = Enter;
         Enter = help->getNext();
         Anz--;
-        //Das entfernte Element zurückliefern
+        //Return the removed item
         return help2;
     }
     else if(Pos > Anz); //do nothing
 
-    //Ansonsten die Warteschlange mithilfe einer for-Schleife bis zu einer Stelle vor der übergebenen Position durchlaufen
+    //Otherwise, run through the queue using a for loop up to a point before the transferred position
     else{
         for(int i = 1; i < Pos-1; i++){
             help = help->getNext();
         }
-        //Dann den Pointer auf das ünernächste Element setzen und so das Element an der gewünschten Position aus der verketten Liste nehmen
+        //Then set the pointer to the next element and remove the element from the linked list at the desired position
         EVKD * help2 = help->getNext();
         help->setNext(help2->getNext());
         Anz--;
-        //Schließlich das entfernte Element zurückliefern
+        //Finally, return the removed item
         return help2;
     }
 }
 
-//Methode zum Anzeigen der Liste
+//Method of viewing the list
 void QUEUE::zeigDich(){
     EVKD * help = Enter;
-    //Spezialfall um die richtige Adresse des ersten Elements anzuzeigen
+    //Special case to display the correct address of the first element
     cout << "Daten: " << help->getDaten() << " | Adresse: " << Enter << endl;
 
-    //Den Rest der Liste bis ein Element einen nullptr besitzt durchlaufen
+    //Iterate through the rest of the list until one element has a nullptr
     while(help != NULL && help->getNext() != nullptr){
-        //Das Element mit richtiger Adresse auf die Konsole ausgeben
+        //Output the element with the correct address to the console
         cout << "Daten: " << help->getNext()->getDaten() << " | Adresse: " << help->getNext() << endl;
         help = help->getNext();
     }
