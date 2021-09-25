@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1624197355 source:c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum2\main.cpp
+	<iostream>
+	<string>
+	"EVKD.h"
+	"QUEUE.h"
+
+1624197162 source:c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum2\src\queue.cpp
+	"QUEUE.h"
+	<iostream>
+
+1624193411 c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum2\include\queue.h
+	"EVKD.h"
+
+1624196762 source:c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum2\src\evkd.cpp
+	"EVKD.h"
+	<string.h>
+	<iostream>
+
+1624107760 c:\users\nicole\desktop\uni\2. semester\ad\praktikum\ad_praktikum2\include\evkd.h
+
