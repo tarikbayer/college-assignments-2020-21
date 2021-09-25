@@ -3,7 +3,7 @@
 * LINE inherits a point on the straight line from POINT, so it needs another as an attribute to determine the straight line. Again, use the initialization constructor with the initialization list for the attributes and the inherited class. CIRCLE also inherits from POINT, this should be the center of a circle object. The radius is required as a further attribute. Use the initialization constructor and the copy constructor using the initialization list! Create the "isInCircle" method to determine whether a point transferred in the parameter list lies within the circle and the "meetsOther" method, which returns the number of intersection points for another circle transferred in the parameter list (second parameter) and, if applicable, pointer to these intersections! Note that MeetsOther can also be used to cut circles that have different radii! Use the ones presented in the exercise
 * Formulas, among other things, for determining the intersection points. Note that pointers are returned to the calling program to return the intersection points, i.e. the data type POINT * * must be used in the signature for the pointers of the intersection points in accordance with the rules for Call by Reference!
 
-02.
+02. Tasks
 * Develop a program based on the classes POINT, LINE and CIRCLE with the following menu:
 1.) Specify any two circles, each with a center point and radius, and make them intersect. Specify the ratio of the circles to each other and, if necessary, show the point of contact or intersection points.
 2.) Construct two circles with the help of any three points and make them cut. Specify the ratio of the circles to each other and, if necessary, show the point of contact or intersection points.
