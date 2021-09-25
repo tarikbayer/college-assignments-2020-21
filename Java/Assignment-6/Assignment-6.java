@@ -4,11 +4,11 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Aufgabe_4_2 {
+public class Assignment_6 {
 
 	public static void main(String[] args) {
 		//Frame
-		JFrame frame = new JFrame ("Ein einfacher Taschenrechner");
+		JFrame frame = new JFrame ("A simple calculator");
 		frame.setLocation(700, 400);
 		frame.setSize(400, 300);
 
@@ -29,40 +29,40 @@ public class Aufgabe_4_2 {
 		plus.setFont (new Font ("Arial", Font.BOLD, 30));
 		minus.setFont (new Font ("Arial", Font.BOLD, 30));
 		
-		//Wenn + Button gedrückt wird 
+		//When + button is pressed
 		plus.addActionListener((e) -> {
-			//Überprüfen ob in beiden Eingabe Text Feldern etwas steht
+			//Check whether there is something in both input text fields
 			if (links.getText().length() == 0 || rechts.getText().length() == 0) {
             	ergebnis.setText("keine Eingabe");
                 return;
             }
-			//Eingabe zu Integer umwandeln
+			//Convert input to integer
             int eingabeL = Integer.parseInt(links.getText());
             int eingabeR = Integer.parseInt(rechts.getText());
             int erg;
             
-            //Ergebnis berechnen und als String wieder in das 3. Textfeld schreiben
+            //Calculate the result and write it back into the 3rd text field as a string
             erg = eingabeL + eingabeR;
             ergebnis.setText(String.valueOf(erg));
         });
-		//Wenn - Button gedrückt wird 
+		//When - button is pressed
 		minus.addActionListener((e) -> {
-			//Überprüfen ob in beiden Eingabe Text Feldern etwas steht
+			//Check whether there is something in both input text fields
             if (links.getText().length() == 0 || rechts.getText().length() == 0) {
             	ergebnis.setText("keine Eingabe");
                 return;
             }
-            //Eingabe zu Integer umwandeln
+            //Convert input to integer
             int eingabeL = Integer.parseInt(links.getText());
             int eingabeR = Integer.parseInt(rechts.getText());
             int erg;
             
-            //Ergebnis berechnen und als String wieder in das 3. Textfeld schreiben
+            //Calculate the result and write it back into the 3rd text field as a string
             erg = eingabeL - eingabeR;
             ergebnis.setText(String.valueOf(erg));
         });
 		 
-		//Alle Textfelder und Buttons dem frame hinzufügen und es anschließen sichtbar machen (außerdem den frame löschen falls das Fenster geschlossen wird)
+		//Add all text fields and buttons to the frame and then make it visible (also delete the frame if the window is closed)
 		frame.add(links);
 		frame.add(rechts);
 		frame.add(plus);
