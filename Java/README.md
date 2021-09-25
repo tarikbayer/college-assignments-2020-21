@@ -7,3 +7,4 @@
     - A program that allows user to create stacks in desired length and use POP, PUSH, PRINT methods on the stack.
   * Assignment-3 includes three classes to work with Sets and Subclasses.
   * Assignment-4 includes three classes that work with Generics and Interfaces
+  * Assignment-5 is a program to process files with a given file path and to work with Java's Serialization function.
