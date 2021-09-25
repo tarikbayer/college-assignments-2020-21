@@ -1,24 +1,13 @@
-/* Dateiname: EVKD.cpp:
-Enthält das Hauptprogramm laut Aufgabenstellung
 
-AD-Praktikum SoSe 2021
-Gruppe: 20
-Schmidt, Nicole, Mat.-Nr.: 11148335
-Bayer, Tarik, Mat.-Nr.: 11149643
-Abgabe am: 21.6.21
-Praktikumsblatt: 2.1
-Compiler Flags: -
-Linker libraries/options: -
-*/
 #include "EVKD.h"
 #include <string.h>
 #include <iostream>
 
 EVKD::EVKD(){}
 
-//Konstruktor
+//Constructor
 EVKD::EVKD(char * LPSZDaten, EVKD * N){
-    //'\0' aus dem char Array löschen
+    //Delete '\ 0' from the char array
     Anz = strlen(LPSZDaten);
     Daten = new char[Anz];
     for(int i = 0; i < Anz; i++){
@@ -27,7 +16,7 @@ EVKD::EVKD(char * LPSZDaten, EVKD * N){
     Next = N;
 }
 
-//Daten zurückgeben und '\0' mithilfe der Länge des Arrays anhängen
+//Return data and append '\ 0' using the length of the array
 char * EVKD::getDaten() const{
     char * help;
     help = Daten;
@@ -36,17 +25,17 @@ char * EVKD::getDaten() const{
     return help;
 }
 
-//Nächstes Listenelement zurückgeben
+//Return next list item
 EVKD * EVKD::getNext(){
     return Next;
 }
 
-//Nächstes Listenelement setzen
+//Set next list element
 void EVKD::setNext(EVKD * N){
     this->Next = N;
 }
 
-//Überladener > Operator; 2 Strings vergleichen mithilfe von strcmp
+//Overloaded> operator; Compare 2 strings using strcmp
 bool EVKD::operator > (EVKD &e){
 
     char * S1 = this->getDaten();
@@ -55,7 +44,7 @@ bool EVKD::operator > (EVKD &e){
     return (strcmp(S1, S2) < 0);
 }
 
-//Überladener == Operator; wieder 2 Strings mithilfe von strcmp vergleichen
+//Overloaded == operator; again compare 2 strings using strcmp
 bool EVKD::operator == (EVKD &e){
 
     char * S1 = this->getDaten();
